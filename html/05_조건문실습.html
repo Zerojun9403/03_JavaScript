@@ -20,8 +20,90 @@
         // 2. 만약에 친구가 빌려다는 금액이 5,000원 이상이면 잔액이 없어서 힘들거 같아
         //     5,000원 이하면 언제까지 돌려줄수 있는지 알려줘^^보냄.
 
-        const ch = document.getElementById("input1");
-        const chResult = Number("input1".value);
+        const ch = document.getElementById("input1").value;
+        alert(ch);
+
+        if (ch >= 5000) {
+          alert("잔액이없어서 힘들거 같아");
+        } else {
+          alert("언제까지 돌려줄수 있는지 알려줘^^");
+        }
+      }
+    </script>
+
+    <h4>홀짝 확인하기</h4>
+    <input type="number" id="input2" />
+    <button type="button" onclick="홀짝기능()">확인하기</button>
+    <script>
+      function 홀짝기능() {
+        const input2 = document.getElementById("input2");
+        const val2 = Number(input2.value);
+        if (val2 % 2 == 1) {
+          alert("홀수입니다.");
+        } else {
+          alert("짝수입니다.");
+        }
+      }
+    </script>
+    <h4>주행비용 계산하기</h4>
+    <p>이동 거리에 따라 주행비용을 계산해주는 프로그램 입니다.</p>
+    <p>이동거리 : <input type="number" id="input3" /></p>
+    <button type="button" onclick="주행거리계산기능()">계산하기</button>
+    <script>
+      const 인풋3 = document.getElementById("input3");
+
+      function 주행거리계산기능() {
+        const amount = Number(인풋3.value);
+        if (amount <= 3) {
+          alert("주행거리 비용은 3,000원입니다.");
+        } else if (amount < 10) {
+          alert("주행거리 비용은 8,000원입니다");
+        } else {
+          alert("주행거리 비용은 20,000입니다");
+        }
+      }
+    </script>
+
+    <h1>if (만약에) - else if(아니라면 이렇게, 저렇게) -else(모두아니면)</h1>
+    <pre>
+    <code>
+        if(조건식1){
+            조건식 1 이 T이면 실행
+        } else if(조건식 2){
+            앞에선 F 이면서 현재조건식 T
+        }else{
+            둘다 아님 
+        }
+    </code>
+    * else if 구문은 원하는 만큼 작성 가능
+    * 앞선 if / else if문 조건이 false인 경우
+        이후 else if에서 해당 범위는 제외된다
+    </pre>
+    <h3>어린이, 청소년, 성인 구분하기</h3>
+    <pre>
+        나이를 입력받아 
+        0~13 어린이
+        14~19 청소년
+        20~150세 성인
+        0미만 150세 초과 : 잘못 입력
+        미입력 : 값을 입력해주세요
+    </pre>
+    나이 : <input type="number" id="inputAge" />
+    <button onclick="체크4()">확인하기</button>
+    <script>
+      const inputAge = document.getElementById("inputAge");
+      function 체크4() {
+        const 받아온나이값 = Number(inputAge.value);
+
+        if (받아온나이값 < 0 || 받아온나이값 > 150) {
+          alert("잘못입력하셨습니다.");
+        } else if (받아온나이값 >= 0 && 받아온나이값 <= 13) {
+          alert("어린이");
+        } else if (받아온나이값 <= 19) {
+          alert("청소년");
+        } else {
+          alert("성인");
+        }
       }
     </script>
   </body>

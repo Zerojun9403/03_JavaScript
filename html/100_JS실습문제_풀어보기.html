@@ -100,11 +100,18 @@
     <div id="계산결과"></div>
     <script>
       function 계산하기(연산자) {
-        const n1 = document.getElementById("숫자1");
-        const n2 = document.getElementById("숫자2");
+        const n1 = Number(document.getElementById("숫자1").value);
+        const n2 = Number(document.getElementById("숫자2").value);
         const culResult = document.getElementById("계산결과");
 
         // 만약에 ~~ 이 값이 진실이라면!
+        if (연산자 == "+") {
+          culResult = n1 + n2;
+        } else if (연산자 == "-") {
+          culResult = n1 - n2;
+        } else if (연산자 == "*") {
+          culResult = n1 * n2;
+        }
       }
     </script>
   </body>
