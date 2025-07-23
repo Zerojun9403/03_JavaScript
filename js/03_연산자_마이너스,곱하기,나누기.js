@@ -19,11 +19,11 @@ getElementById : 함수 안에서 매서드 기능으로 document 를 사용해�
 */
 
 // 대소문자 구분할 경우
-const ABC = "알파벳 ABC 대문자";
+/*const ABC = "알파벳 ABC 대문자";
 const adc = "알파벳 abc 소문자";
 
 console.log(ABC); // 알파벳 ABC 대문자
-console.log(abc); // 알파벳 abc 소문자
+console.log(abc); // 알파벳 abc 소문자*/
 
 /*
     대문자로 변수이름을 작성할 경우에는 상수라는 의미로 개발자들 간의 약속
