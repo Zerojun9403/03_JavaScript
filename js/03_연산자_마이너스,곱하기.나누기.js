@@ -36,7 +36,7 @@ console.log(abc); // 알파벳 abc 소문자
 // script 가 포함된 html 문서 내부에서
 // input1 이라고 작성된 id를 포함한 태그를 바라보겠다 설정
 const num1 = document.getElementById("input1");
-const num2 = document.getElementById("input1");
+const num2 = document.getElementById("input2");
 const result = document.getElementById("계산결과");
 
 function minusFn() {
@@ -47,4 +47,20 @@ function minusFn() {
   // 원하는 계산기 버튼을 클릭해서 계산결과값을 확인 할 수 있도록 해야함
   const value1 = num1.value;
   const value2 = num2.value;
+  result.innerText = Number(value1) - Number(value2);
+}
+function multiFn() {
+  const val1 = Number(num1.value);
+  const val2 = Number(num2.value);
+  result.innerText = val1 * val2;
+}
+
+function divFn() {
+  result.innerText = Number(num1.value) / Number(num2.value);
+}
+
+function modFn() {
+  const val1 = Number(num1.value);
+  const val2 = Number(num2.value);
+  result.innerText = val1 % val2;
 }
