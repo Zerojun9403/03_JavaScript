@@ -10,22 +10,9 @@
     <h3>문제 1 : 기본 알림창 띄우기</h3>
     <button type="button" onclick="첫번째함수()">클릭해보세요!</button>
 
-    <script>
-      // 안녕하세요 첫번째 함수 클릭했을때 나오게 하기
-      function 첫번째함수() {
-        alert("안녕하세요");
-      }
-    </script>
-
     <h3>문제 2: 텍스트 변경하기</h3>
     <button type="button" onclick="텍스트변경()">텍스트 바꾸기</button>
     <div id="메시지영역">여기 텍스트가 바뀔 예정입니다.</div>
-    <script>
-      function 텍스트변경() {
-        const msg = document.getElementById("메시지영역");
-        msg.innerText = "새로운 메시지!";
-      }
-    </script>
 
     <h3>문제 3: 배경색 변경</h3>
     <button type="button" onclick="배경색변경('pink')">분홍색</button>
@@ -33,47 +20,10 @@
     <button type="button" onclick="배경색변경('lightyellow')">노란색</button>
     <button type="button" onclick="배경색변경('white')">원랴색</button>
 
-    <script>
-      function 배경색변경(색상) {
-        /*
-            document.querySelector("body").style.backgroundColor = 색상;
-            document
-                .querySelector("body")
-                    .style
-                        .backgroundColor = 색상;
-        */
-        const bd = document.querySelector("body");
-        bd.style.backgroundColor = 색상;
-      }
-    </script>
-
     <h4>문제 4 :이름입력 받고 인사하기</h4>
     <input type="text" id="이름입력" placeholder="이름을 입력하세요" />
     <button type="button" onclick="인사하기()">인사하기</button>
     <div id="인사결과"></div>
-
-    <script>
-      function 인사하기() {
-        const name = document.getElementById("이름입력").value;
-
-        const result = document.getElementById("인사결과");
-        result.innerHTML = "안녕하세요" + name + "님";
-
-        /*
-        innerHTML
-            : 내부에서 HTML 태그 인식 하고 처리
-
-        innerText
-            : 내부에서 HTML 태그 인식하지 않고 오직 순수한 텍스트 값만 다룸
-        
-        */
-
-        const testInnerHTML = "<h1>안녕하세요</h1>";
-        const testInnerText = "<h1>안녕하세요</h1>";
-        alert(testInnerHTML);
-        alert(testInnerText);
-      }
-    </script>
 
     <h3>InnerHTML 차이점</h3>
     <div>
@@ -81,15 +31,6 @@
       <div id="xInnerTEXT"></div>
       <button type="button" onclick="Inner확인하기()">확인하기</button>
     </div>
-    <script>
-      function Inner확인하기() {
-        const a = document.getElementById("xInnerHTML");
-        const b = document.getElementById("xInnerTEXT");
-
-        a.innerHTML = "<h1>안녕하세요</h1>";
-        b.innerText = "<h1>안녕하세요</h1>";
-      }
-    </script>
 
     <h3>문제 5 : 간단한 계산기</h3>
     <input type="number" id="숫자1" placeholder="첫 번째 숫자" />
@@ -130,12 +71,6 @@
     <button type="button" onclick="이미지크기조절('100px')">작게</button>
     <button type="button" onclick="이미지크기조절('200px')">보통</button>
     <button type="button" onclick="이미지크기조절('300px')">크게</button>
-    <script>
-      function 이미지크기조절(크기) {
-        /* 자바스크림트 내에서 작성하는 스타일은 2순위 스타일이기 때문에 사용 지양 */
-        document.getElementById("조절이미지").style.width = 크기;
-      }
-    </script>
 
     <h6>문제 6 : 이미지 크기 조절하기(응용편)</h6>
     <img
@@ -152,13 +87,6 @@
     <button type="button" onclick="이미지크기조절2('300px','900px')">
       크게
     </button>
-    <script>
-      function 이미지크기조절2(가로, 세로) {
-        /* 자바스크림트 내에서 작성하는 스타일은 2순위 스타일이기 때문에 사용 지양 */
-        document.getElementById("조절이미지2").style.width = 가로;
-        document.getElementById("조절이미지2").style.height = 세로;
-      }
-    </script>
 
     <h3>문제 7 : 글자 스타일 변경하기</h3>
     <div id="스타일텍스트">이 텍스트의 스타일이 바뀝니다!</div>
@@ -171,77 +99,15 @@
     <button type="button" onclick="글자스타일변경('green', '15px', 'italic')">
       초록색 기울임
     </button>
-    <script>
-      function 글자스타일변경(색상, 크기, 굵기) {
-        document.getElementById("스타일텍스트").style.color = 색상;
-        document.getElementById("스타일텍스트").style.fontSize = 크기;
-        document.getElementById("스타일텍스트").style.fontStyle = 굵기;
-
-        /* 
-        
-        fontStyle = 기울이기 어떤 디자인으로 폰트를 꾸며줄지에 대해 설정
-        fontWeight = 폰트의 굵기 100(얇음)~900(두꺼워짐)
-                    일반적인 폰트 두께 = 400
-                    bold 두께 = 700
-        
-        
-        */
-      }
-    </script>
 
     <h4>문제 9: 숨기기 / 보이기 기능</h4>
     <button type="button" onclick="토글기능()">숨기기/보이기</button>
     <div id="토글박스">👋 안녕하세요! 저를 숨겨보세요!</div>
-    <script>
-      let 토글보임상태 = true;
-      function 토글기능() {
-        if (토글보임상태 === true) {
-          document.getElementById("토글박스").style.display = "none";
-          토글보임상태 = false;
-        } else {
-          document.getElementById("토글박스").style.display = "block";
-          토글보임상태 = true;
-        }
-      }
-    </script>
 
     <h4>문제 8 : 현재 시간 보여주기</h4>
 
     <button type="button" onclick="시간보여주기()">현재시간 확인</button>
     <div id="시간표시"></div>
-
-    <script>
-      function 시간보여주기() {
-        /*
-        
-        Number  = 추후에 만들어진 데이터 타입
-                -> 단순히 숫자로 만들고 싶은 문자열 외부를 
-                 Number() 라는 글자를 작성하고()로 감싸주면 되는 역할
-        
-        Date  = 다양한 정보와 기능을 담고있는 설계도 
-                new 사용해서 js개발자가 제공하는 기능중에 
-                현재 js사용하는 개발자가 필요한 기능만 작성해서 사용
-                
-        변환/계산 할때는 new 라는 명칭을 사용하지 않음
-        새로운 복잡한 것을 만들때는 new 명칭 사용
-        
-        getMonth()는 0부터 시작하게끔 배치 
-            Month 월을 사용할 때는 +1를 붙여주는 것이 관례 
-        */
-        let 지금 = new Date();
-        document.getElementById("시간표시").innerHTML =
-          지금.getFullYear() +
-          "년" +
-          (지금.getMonth() + 1) +
-          "월" +
-          지금.getDate() +
-          "일" +
-          지금.getHours() +
-          "시" +
-          지금.getMinutes() +
-          "분";
-      }
-    </script>
 
     <h4>문제 9 : 버튼 찾기</h4>
     <div id="게임문제">🎯 빨간색 버튼을 찾아서 클릭하세요!</div>
@@ -268,15 +134,6 @@
     </button>
     <div id="게임결과"></div>
 
-    <script>
-      let 정답색상 = "red";
-      function 게임체크(선택색상) {
-        if (선택색상 == 선택색상) {
-          document.getElementById("게임결과").innerHTML = "정답입니다.";
-        } else {
-          document.getElementById("게임결과").innerHTML = "틀렸습니다.";
-        }
-      }
-    </script>
+    <script src="../js/100_JS실습문제_풀어보기.js"></script>
   </body>
 </html>

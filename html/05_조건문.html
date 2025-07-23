@@ -27,25 +27,7 @@
     <input type="number" id="input1" />
     <button type="button" onclick="체크1()">양수인지 검사</button>
     <hr />
-    <script>
-      const input1 = document.getElementById("input1");
 
-      //양수인지 검사하는 기능 설정
-
-      function 체크1() {
-        const val = Number(input1.value);
-
-        // 만약에 클라이언트가 입력한 숫자값이 0보다 클 경우 = true
-        if (val > 0) {
-          alert("클라이언트가 입력한 숫자는 0보다 큰 양수입니다.");
-        }
-
-        //만약에 클라이언트카 입력한 숫자 값이 0이랑 같거나 0보다 작을 경우 = true
-        if (val <= 0) {
-          alert("클라이언트가 입력한 숫자는 0과 같거나 음수입니다.");
-        }
-      }
-    </script>
     <h3>if(만약에) - else(아니면)문</h3>
     <pre>
         <code>
@@ -60,17 +42,6 @@
     <h4>입력받은수가 양수인지 아닌지 검사</h4>
     <input type="number" id="input2" />
     <button type="button" onclick="체크2()">양수인지 검사</button>
-    <script>
-      const input2 = document.getElementById("input2");
-
-      function 체크2() {
-        const val = Number(input2.value);
-        if (val > 0) {
-          alert("양수입니다.");
-        } else {
-          alert("음수입니다.");
-        }
-      }
-    </script>
+    <script src="../js/05_조건문.js"></script>
   </body>
 </html>
