@@ -80,11 +80,60 @@
       </select>
       <button onclick="커피주문기능()">주문하기</button>
       <div id="coffeeResult" class="result"></div>
+
       <script>
         function 커피주문기능() {
           const coffee = document.getElementById("coffeeSelect").value;
 
           const reultCoffee = document.getElementById("coffeeResult");
+          let price, description;
+          switch (coffee) {
+            case "americano":
+              coffee;
+              price = "2,000원";
+              description = "깔끔하고 진한 맛의 기본 커피";
+              break;
+            case "latte":
+              coffee;
+              price = "3,500원";
+              description = "부드러운 우유 거품이 들어간 커피";
+              break;
+
+            case "cappuccino":
+              name = "coffee";
+              price = "3,800원";
+              break;
+              description = "진한 에스프레소와 우유 거품의 조화";
+            case "mocha":
+              coffee;
+              price = "4,200원";
+              description = "달콤한 초콜릿이 들어간 커피";
+              break;
+
+            case "macchiato":
+              coffee;
+              price = "4,000원";
+              description = "카라멜 시럽이 들어간 달콤한 커피";
+              break;
+            default:
+              name = "정보없음";
+              price = "가격정보없음";
+              description = "죄송합니다. 해당 메뉴는 준비되지 않았습니다.";
+              break;
+          }
+          /*
+            ${} 템플릿 리터럴
+            변수 삽입 문법
+            ES6 부터 제공되는 문법
+            `` 백틱, 역따옴표 안에서 사용하고자 하는 
+            > option + ~ 
+            변수를 작성할때 ${} 내부에 변수 이름 작성 
+
+          */
+          reultCoffee.innerHTML = `<p>☕️ 이름: ${coffee}<br/>
+            💰 가격: ${price}<br/>
+            ✅ 설명 : <string>${description}</string></p>
+          `;
         }
       </script>
     </div>
