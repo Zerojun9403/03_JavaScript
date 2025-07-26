@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>요소접근방법</title>
+  </head>
+  <body>
+    <h1>DOM(Document Object Model)</h1>
+    <pre>
+        웹 문서(HTML)의 모든 요소를 객체 형식으로 표현한 것
+        (HTMl 요소 == JS에서 객체라고 부름)
+
+        -> 문서내 특정 요소에 접근 기능
+            + 요소(객체)에 속성 값을 세팅 또는 얻어올 수 있다. 
+    </pre>
+    document.getElement By ID("id속성값"); document.getElements
+    ByClassName("class속성값");
+    <hr />
+    <h1>DOM을 이용한 요소 접근하기</h1>
+    <pre>
+        1. id로 접근하기 : document.getElement By ID("id속성값");
+        -> 아이디가 일치하는 요소(객체)를 얻어옴
+        2. class 로 접근: document.getElements ByClassName("class속성값");
+        -> 클래스가 일치하는 모든 요소를 얻어와 배열 형태로 반환
+        3. name로 접근 : document.getElements ByName("name속성값");
+        -> name 으로 일치하는 모든 요소를 얻어와 목록 형태로 반환
+        4.tag 로 접근 하기: document.getElements TagName("tag명");
+        -> tag이름이 일치하는 모든 요소를 얻어와 리스트 목록 형태로 반환 
+        5. CSS 선택자로 접근하기 
+            1) document.querySelector("CSS선택자");
+            -> 선택자가 선택한 요소중 첫번째 요소를 반환
+            2) document.querySelectorAll("CSS선택자");
+            -> 선택자가 선택한 요소를 리스트 배열 형태로 반환
+    </pre>
+    <hr />
+    <hr />
+    <hr />
+    <style>
+      .chatting {
+        width: 360px;
+        border: 1px solid black;
+        margin: 50px 20px;
+      }
+
+      #chtting-bg {
+        width: 100%;
+        height: 400px;
+        background-color: rgd(178, 199, 217);
+        /* 내용이 네모창을 벗어나면 세로 스크롤 생기게함*/
+        overflow: auto;
+      }
+
+      #chtting-bg > p {
+        margin: 20px 10px;
+        text-align: right;
+      }
+      #chtting-bg > p > span {
+        background-color: rgb(254, 234, 51);
+        padding: 5px;
+        border-radius: 5px;
+      }
+      #chtting-input {
+        width: 100%;
+        display: flex;
+        height: 22px;
+      }
+
+      #chtting-input > input {
+        height: 100%;
+        width: 90%;
+        outline: none;
+        padding-left: 5px;
+      }
+      #chtting-input > button {
+        height: 100%;
+        width: 10%;
+      }
+    </style>
+    <h3>카카오톡 모양의 채팅 화면 만들기</h3>
+    <div class="chatting">
+      <div id="chatting-bg">
+        <p><span>입력되는 채팅 출력</span></p>
+        <p><span>입력되는 채팅 출력</span></p>
+        <p><span>입력되는 채팅 출력</span></p>
+      </div>
+
+      <div id="chatting-input">
+        <input type="text" id="user-inpur" />
+        <button onclick="readValue()">입력</button>
+      </div>
+    </div>
+  </body>
+</html>
