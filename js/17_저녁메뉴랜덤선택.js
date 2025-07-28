@@ -57,11 +57,51 @@
       displayMenus();
 
 
-      // 랜덤Math.random 사용해서 메뉴 랜덤으로 선택하기 
+      addBtn.addEventListener("click", function(){
+        const newMenu  = menuInput.value.trim();
+
+        // 빈 값 체크 
+        if(newMenu.length === 0){
+        validationMessage.textContent="메뉴를 입력해주세요.";
+        validationMessage.className="validationMessage error";
+        menuInput.focus();
+        return;
+        }
 
 
-      // 뽑기 버튼에 해당하는 selectBtn 에 클릭했을때 
-      // 현재 메뉴목록에 작성된 메뉴를 랜덤으로 선택하기 
+        //2번 정규식 검사 test에서 문제가 없을 경우 true일 경dn
+        if(menuRegex.test(newMenu)){
+        menus.push(newMenu);
+        menuInput.value="";
+        validationMessage.textContent = `${newMenu} 메뉴가 추가되었습니다.`;
+        validationMessage.className = "validation-Message success";
+          displayMenus();
+        } else{
+        //만약에 문제가 존재할 경우
+        validationMessage.textContent ="한글,영어, 숫자만 포함해서 2~20글자로 입력해주세요";
+        validationMessage.className = "validation-Message error";
+        //input 창으로  focus 맞추기
+        menuInput.focus();
+        return;
+        }
+      });
+        /*
+        className = HTML 요소 전체 class 속성을 문자열로 다루는 방식 한번에 교체할 때 사용 
+
+        classList 
+        HTML 요소의 class들을 개별적으로 관리하는 방식
+        class를 하나씩 추가/제거/토글 기능
+        
+        
+        */ 
+      // menuInput Enter 키로 메뉴 추가하기
+      menuInput.addEventListener("keyup", (e) => {
+        //만약에 Enter 키가 입력 됬다면 
+        if(e.key === "Enter"){
+            // 추가하기
+        }
+      })
+      //메뉴 랜덤으로 선택기능
       selectBtn.addEventListener("click", function(){
         // 만약에 length === 0 이라면 
 
