@@ -100,5 +100,143 @@ btn2.addEventListener("click",()=>{
         console.log("가격 : ",this.가격);
         console.log("브랜드 : ",this.브랜드); //스마트폰.브랜드
         console.log("브랜드 : ",브랜드);
-    }
+        
+    };
+    // 메서드 기능 수행하기 
+    // 어디서든 정보() 기능을 수행했을때 내용이나 행동을 확인할수 있는것이 아니라 
+    // 스마트폰이라는 내부에 존재하는 기능을 수행하기 위해서는 
+    // 스마트폰 객체 내부에 존재하는 정보()기능을 호출하겠다와 같은 형식으로 사용
+      스마트폰.정보();
+      /*
+      // 1번 방밥
+      정규식= {
+      test=function(){
+        boolean 값으로 확인할수 있는 코드작성
+      }}
+      //2번 방법
+      정규식 = {};
+      정규식.test = function(){
+      
+        boolean 값으로 확인 할 수 있는 코드 작성
+
+      }
+
+
+
+      // 1번 방법이나 2번 방법을 활용해서 메서드를 생성하고 나면..  아래와 같이 호출
+      정규식. test();
+
+      정규식.test("소비자가 작서한 값 확인하기 ") = true / false 로 일치하는지 확인
+
+
+
+
+      if(개발자가 우너하는 정규식.test(소비자가작성한 값확인)){
+      // 개발자가 원하는 정규식 ==  소비자가작성한 값 확인
+      // true일 경우에만 실행
+      }
+      
+      */
+});
+
+//=========================================
+/*   생성자 함수 */
+
+// 1. 생성자 함수 선언 + 정의 
+// (중요) 생성자 함수의 이름은 무조건 "대문자"로 시작 
+// 영어 이외에 한글 가능, 소문자도 가능하지만 
+// 대문자로 작성해 주는것이 개발자간 예의 
+// 자바에서는 대문자로 주로 사용할것!
+/* 학생 객체 생성자 함수 */
+function Student(name, grade, ban, number, score){
+  // 속성 
+  // 전달 받은 값(Parameter, 매개변수, 리터럴)을 현재 객체(this)에 속성으로 추가 
+  // 현재 속석에 = 값 추가 
+  // this. thrtjd  = 값;
+
+  this.name = name; //이름
+  this.grade =grade  //학셍
+  this.ban = ban // 반
+  this.number = number//번호
+  this.score =score// 전수
+
+  // 기능(메서드)
+  this.intrp = function(){
+
+    console.log(`
+      ${this.grade} 학년 
+      ${this.ban} 반
+      ${this.number}번 
+      ${this.name}이름 
+      ${score} 점입니다.
+      `);
+  };
+}
+
+//생성자 함수 호출
+const btn3 = document.getElementById('btn3');
+btn3.addEventListener("click",()=>{
+  const st1 = new Student("홍길동",3,5,17,80);
+  console.log(st1);
+  const st2 = new Student("박철수",1,2,3,80);
+  console.log(st2);
+});
+
+
+
+/* JSON */
+const btn4 = document.getElementById("btn4");
+btn4.addEventListener("click", ()=>{
+
+
+//js 객체 생성
+const obj = {id :"test01",pw:"1234",number:999999};
+//1.JS 객체 -> JSON 문자열 로 변화 
+const str = JSON.stringify(obj);
+
+console.log("obj : ", obj);
+console.log("str : ", str);
+
+
+// js 객체 생성
+// Uncaught SyntaxError :
+// str2 = 'obj = {id :"test01",pw:"1234",number:999999}';
+const str2 =' {"id" :"test01","pw":"1234","number":999999}';
+
+//2. JSON 문자열 -> JS 객체 로 변화 
+const obj2 = JSON.parse(str2);
+
+console.log("str2 : ", str2);
+console.log("obj2 : ", obj2);
+
+//서버 데이터 비동기 요청
+
+
+
+/*
+
+fetch("API_URL" )    :  웹 API 로 HTTP 요청을 보냄
+                        비동기 처리 상태로
+                        네트워크 요청이 완료되면 Response 객체 제동 
+.then((reponse) => reponse.json()) : fetch에서 URL 주소를 접속해서 요청을 성공적으로 받으면 실행 
+                                     주로  URL 주소에서는 JSON() 형태로 데이터 존재 
+                                     이 데이터를 JSON -> JavaScript 객체로 변환
+.then((result) => console.log(result.reponse.데이터)
+                                                : result : 변환돈 JavaScript 객체 데이터 저장
+                                                result 내부에서 원하는 값에 접근해서 
+                                                원하는 데이터만 출력
+                                                : 반드시 fetch .then. then 형식이 종료 된 후 맨 마지막에 붙여주기 
+                                                해선 안되는 행동 : fetch; 금지!!!
+ 전체흐름
+  API요청 -> 응답받기 -> JSON변환 -> 데이터 출력
+  fetch      then1        then2        console.log
+
+;
+*/ 
+fetch(
+  "https://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMinuDustFrcstDspth?serviceKey=fC0CJR9Lmwp3VfoLcND3XVFDW7FKGuTMECDT6TZD3aE7q4XUVL6PYscpePWfKNMwh0p6ZUt%2FmOm5xGbckoRGCQ%3D%3D&returnType=JSON&numOfRows=100&pageNo=1&searchDate=2024-01-22&InformCode=PM10"
+
+)
+.then((reponse) => reponse.json())
+.then((result) => console.log(result.reponse.header.resultMsg));
 })
