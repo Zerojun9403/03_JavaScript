@@ -3,7 +3,7 @@ const list = document.querySelectorAll("#display > span");
 const startBtn = document.querySelector("#startBtn");
 const recordBtn = document.querySelector("#recordBtn");
 const resetBtn = document.querySelector("#resetBtn");
-const recordContainer = document.querySelector("#record-Container");
+const recordContainer = document.querySelector("#record-container");
 
 let count = 0; // 1/100 초 마다 1씩 증가한 값을 저장할 변수
 
