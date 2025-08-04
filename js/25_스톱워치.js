@@ -28,10 +28,8 @@ startBtn.addEventListener("click", (e) => {
     output(); // 화면에 시간출력하는 기능 (실습코드에 존재)
   }, 10); // 10ms
 
-
-  e.target.textContent ="PAUSE"; // 카운트 시작 중에 정지하고 싶으면 정지할 수 있도록 버튼 내부 PAUSE변경
+  e.target.textContent = "PAUSE"; // 카운트 시작 중에 정지하고 싶으면 정지할 수 있도록 버튼 내부 PAUSE변경
 });
-
 
 /* 시계 출력 함수 */
 function output() {
@@ -79,4 +77,29 @@ resetBtn.addEventListener("click", () => {
 
   // #recordContainer의 내용을 모두 삭제(== 빈 문자열로 변경)
   recordContainer.innerHTML = "";
+});
+
+/**
+ *
+ * record 클릭시
+ *
+ * const li = document.creataElement("li");
+ *
+ * li.innerText = dispaly.innerText;
+ *
+ * #recordContainer 의 첫번째 자식으로 li 추가
+ *
+ * append()
+ *
+ *
+ *
+ *
+ */
+
+recordBtn.addEventListener("click", () => {
+  const li = document.createElement("li");
+
+  li.innerText = display.innerText;
+
+  recordContainer.prepend(li);
 });
