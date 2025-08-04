@@ -31,8 +31,8 @@ id 명칭이나 name명칭을 한글로 쓰는 경우
 인식을 가끔 못할 수 있기에 영어로 작성해주는것이 좋음
 */
 
-const send = document.getElementById("#send");
-const childInput = document.getElementById("#childInput");
+const send = document.getElementById("send");
+const childInput = document.getElementById("childInput");
 
 send.addEventListener("click", () => {
   opener.document.getElementById("writeValue").value = childInput.value;
