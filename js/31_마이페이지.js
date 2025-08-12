@@ -9,16 +9,16 @@ $(function () {
     window.location.href = "31_로그인.html";
     return; // if문 아래 기능들 실행하지 못하도록 돌려 보내기
   }
-
-  // 유저가 존대한다면 유저 정보를 문자열에서 객체로 변환
   let user = JSON.parse(세션로그인유저);
   console.log("user : ", user);
 
   // 화면에 사용자 정보 표시
-  $("#user-name").text(user.name);
+  $("#user-neme").text(user.name);
   $("#user-email").text(user.email);
   $("#logout-Btn").click(logoutFn);
 });
+
+// 유저가 존대한다면 유저 정보를 문자열에서 객체로 변환
 
 //로그아웃 버튼 클릭
 function logoutFn() {
